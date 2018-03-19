@@ -1,5 +1,5 @@
 import kin_slice as slice
-from kin_mongo import client
+# from kin_mongo import client
 
 t_log = "223.104.4.118 - - [14/Mar/2018:10:33:19 +0800] \"GET / log / sdk_update?sdkVersion = 122 HTTP / 1.1\" 200 2 \" - \" \"Dalvik / 1.6.0 (Linux; U; Android 4.4.4; OPPO R7s Build / KTU84P) | c36d126e448f2ec8e0ac33515801c8f1 | 860268037142249\""
 
