@@ -26,21 +26,13 @@ import sys
 d=set()
 i=0
 p=sys.argv[1]
-with open(p,'rt') as f:
+with open(p, 'rt') as f:
     for line in f:
-        guid=slice.sliceGUid(line)
-        d.add(guid)
-        print(guid)
-
-#for id_ in d:
-#    print(id_)
-#with open(p, 'rt') as f:
-#    for line in f:
-#        if 'sdkVersion=121' in line or 'sdkVersion=122' in line:
-#            guid = slice.sliceGUid(line)
-#            if guid and not 'null'==guid:
-#                if i<201:
-#                    i=i+1
-#                    d.add(guid)
-#                    print(guid)
+        if 'sdkVersion=121' in line or 'sdkVersion=122' in line:
+            guid = slice.sliceGUid(line)
+            if guid and not 'null'==guid:
+                if i<1001:
+                    i=i+1
+                    d.add(guid)
+                    print(guid)
 #print(len(d))

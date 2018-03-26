@@ -15,7 +15,7 @@ reg_os_version = r'((.*)(\d\.\d\.\d))'
 reg_brand = r'((.*)(\d\.\d\.\d; )(.*)( Build))'
 
 #client guid
-reg_gUid = r'((.*)(\| )(.*)( \|))'
+reg_gUid = r'(^(.*)(\| )(.{32})( \|))'
 
 #client imei
 reg_imei = r'((.*)(\| )(.*)(\"))$'
