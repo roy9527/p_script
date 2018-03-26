@@ -12,19 +12,22 @@ reg_date = r'((.*)(\d{2,}/\w{1,}/\d{1,}\:\d{1,}\:\d{1,}\:\d{1,}))'
 reg_os_version = r'((.*)(\d\.\d\.\d))'
 
 #client brand
-reg_brand = r'((.*)(\d\.\d\.\d; )(.*)( Build))'
+reg_brand = r'((.*)(\d\.\d\.\d; )(.*)( Build| MIUI))'
 
 #client guid
-reg_gUid = r'(^(.*)(\| )(.{32})( \|))'
+reg_gUid = r'((.*)(\| )(.{32})( \|))'
 
 #client imei
-reg_imei = r'((.*)(\| )(.*)(\"))$'
+reg_imei = r'((.*)(\| )(.{4,15})( \|))'
 
 #date format
 format_date = "%d/%b/%Y:%H:%M:%S"
 
 #date format str
-format_data_str = "%Y-%m-%d"
+format_date_str = "%Y-%m-%d"
+
+#datetime format str
+format_date_time_str = "%Y-%m-%d/%H:%M:%S"
 
 def sliceIp(line):
     d = re.match(reg_ip, line, 0)
@@ -63,6 +66,7 @@ def sliceBrand(line):
 def sliceGUid(line):
     d = re.match(reg_gUid, line, 0)
     if d:
+        print(d.groups())
         uid = d.groups()[-2]
         return uid.rstrip()
     else:
@@ -83,3 +87,6 @@ def covertToTime(rawTime):
 
 def covertToTimeStr(time_):
     return time.strftime(format_date_str, time_)
+    
+def covertToDateTimeStr(time_):
+    return time.strftime(format_date_time_str, time_)
